@@ -18,13 +18,13 @@ function shuffle(array) {//数组随机排序方法
 class Box {
     row = 7 //行数
     column = 7 //列数
-    numberOfLayer = 4 //层数
+    numberOfLayer = 5 //层数
     basicSize = 40 //卡片大小
-    density = 0.2//密度
+    density = 0.3//密度
     overMap = [] //遮挡数组
     cardArray = [] //卡片三维数组
     toDoCard = [] //下面装卡片的区域
-    maxCardNum = 9
+    maxCardNum = 7
     that //this指针
     box
     createdCard = 0
@@ -109,6 +109,10 @@ class Box {
             console.log(this.box.childNodes.length, out)
             for (let i = 0; i < out; i++) {
                 let temp = Math.floor(Math.random() * this.box.childNodes.length - 1)
+                let x = parseInt(card.getAttribute('row'))
+                let y = parseInt(card.getAttribute('col'))
+                let z = parseInt(card.getAttribute('deepth'))
+                this.cardArray[z][x][y] = 0
                 this.box.removeChild(this.box.childNodes[temp])
                 this.createdCard--
             }
@@ -168,7 +172,7 @@ class Box {
         this.moveCard(this.toDoCard)
         setTimeout(function () {
             that.checkUpCard(card)
-        }, 500)
+        }, 700)
     }
     moveCard(arr) {
         let y = (this.column + 2) * this.basicSize
