@@ -109,9 +109,9 @@ class Box {
             console.log(this.box.childNodes.length, out)
             for (let i = 0; i < out; i++) {
                 let temp = Math.floor(Math.random() * this.box.childNodes.length - 1)
-                let x = parseInt(card.getAttribute('row'))
-                let y = parseInt(card.getAttribute('col'))
-                let z = parseInt(card.getAttribute('deepth'))
+                let x = parseInt(this.box.childNodes[temp].getAttribute('row'))
+                let y = parseInt(this.box.childNodes[temp].getAttribute('col'))
+                let z = parseInt(this.box.childNodes[temp].getAttribute('deepth'))
                 this.cardArray[z][x][y] = 0
                 this.box.removeChild(this.box.childNodes[temp])
                 this.createdCard--
