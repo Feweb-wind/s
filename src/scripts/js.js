@@ -18,9 +18,9 @@ function shuffle(array) {//数组随机排序方法
 class Box {
     row = 7 //行数
     column = 7 //列数
-    numberOfLayer = 5 //层数
+    numberOfLayer = 4 //层数
     basicSize = 40 //卡片大小
-    density = 0.3//密度
+    density = 0.2//密度
     overMap = [] //遮挡数组
     cardArray = [] //卡片三维数组
     toDoCard = [] //下面装卡片的区域
@@ -140,9 +140,10 @@ class Box {
         let x = parseInt(card.getAttribute('row'))
         let y = parseInt(card.getAttribute('col'))
         let z = parseInt(card.getAttribute('deepth'))
+        console.log(z, x, y)
         for (let i = z + 1; i < this.cardArray.length; i++) {
             console.log("进循环了")
-            if (this.cardArray[i][x - 1][y + 1] || this.cardArray[i][x][y + 1] || this.cardArray[i][x + 1][y + 1]
+            if (this.cardArray[i][x - 1][y - 1] || this.cardArray[i][x][y - 1] || this.cardArray[i][x + 1][y - 1]
                 || this.cardArray[i][x - 1][y] || this.cardArray[i][x][y] || this.cardArray[i][x + 1][y]
                 || this.cardArray[i][x - 1][y + 1] || this.cardArray[i][x][y + 1] || this.cardArray[i][x + 1][y + 1] === 1) {
                 console.log('上面有脏东西')
